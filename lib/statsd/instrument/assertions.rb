@@ -57,10 +57,13 @@ module StatsD::Instrument::Assertions
         end
       end
 
-      assert expected_metric_times_remaining == 0,
-          "Metric expected #{expected_metric_times} times but seen"\
-          " #{expected_metric_times-expected_metric_times_remaining}"\
-          " times: #{expected_metric.inspect}"
+      msg = "Metric expected #{expected_metric_times} times but seen"\
+            " #{expected_metric_times-expected_metric_times_remaining}"\
+            " times: #{expected_metric.inspect}."
+      if filtered_metrics.any?
+        msg += "\nCaptured metrics with the same key: #{filtered_metrics}"
+      end
+      assert expected_metric_times_remaining == 0, msg
     end
     expected_metrics -= matched_expected_metrics
 
