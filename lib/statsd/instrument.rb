@@ -379,7 +379,7 @@ module StatsD
     yield self
   end
 
-  # These two methods are to comply with interfaces that other libraries are assuming
+  # These methods are to comply with interfaces that other libraries are assuming
   # are on the StatsD interface
   alias time measure
   alias timer measure
