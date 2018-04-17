@@ -5,6 +5,7 @@ please at an entry to the "unreleased changes" section below.
 
 ### Unreleased changes
 - Only rely on the default backend for an environment if one was not already declared.
+- Create dummy `batch`, `timer`, `timing`, and `time` functions.
 
 ### Version 2.1.3
 
