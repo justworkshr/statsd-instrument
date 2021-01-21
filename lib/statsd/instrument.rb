@@ -415,6 +415,14 @@ module StatsD
   # Deprecated methods will be delegated to the legacy client
   def_delegators :legacy_singleton_client, :default_tags, :default_tags=,
     :default_sample_rate, :default_sample_rate=, :prefix, :prefix=, :backend, :backend=
+
+  def batch
+    yield self
+  end
+
+  alias time measure
+  alias timer measure
+  alias timing measure
 end
 
 require 'statsd/instrument/version'
